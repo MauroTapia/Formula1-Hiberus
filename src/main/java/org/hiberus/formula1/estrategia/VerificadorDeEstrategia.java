@@ -2,15 +2,19 @@ package org.hiberus.formula1.estrategia;
 
 import org.hiberus.formula1.exception.CombustibleAgotadoException;
 import org.hiberus.formula1.exception.NeumaticosAgotadosException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class VerificadorDeEstrategia {
+    private static final Logger logger = LoggerFactory.getLogger(VerificadorDeEstrategia.class);
+
     public static void verificarEstrategia(Estrategia estrategia, String nombreEstrategia) {
         try {
-            System.out.println(nombreEstrategia + " es viable: " + estrategia.esViable());
+            logger.info("{} es viable: {}", nombreEstrategia, estrategia.esViable());
         } catch (CombustibleAgotadoException | NeumaticosAgotadosException e) {
-            System.out.println("Error en " + nombreEstrategia + ": " + e.getMessage());
+            logger.error("Error en {}: {}", nombreEstrategia, e.getMessage());
         } catch (IllegalArgumentException e) {
-            System.out.println("Error en " + nombreEstrategia + ": " + e.getMessage());
+            logger.error("Error en {}: {}", nombreEstrategia, e.getMessage());
         }
     }
 }

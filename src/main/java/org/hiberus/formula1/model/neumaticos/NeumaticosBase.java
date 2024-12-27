@@ -23,6 +23,6 @@ public abstract class NeumaticosBase implements Neumaticos {
 
     @Override
     public boolean puedeCompletarRecorrido(int km) {
-        return obtenerVidaRestante() > km * getDesgastePorKm();
+        return obtenerVidaRestante() >= km;
     }
 }

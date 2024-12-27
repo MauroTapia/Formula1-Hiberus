@@ -17,11 +17,9 @@ public class Estrategia {
     }
 
     public boolean esViable() {
-        if (kmRecorrer <= 0) throw new IllegalArgumentException("La distancia a recorrer debe ser mayor a 0.");
-        if (!combustible.puedeCompletarRecorrido(kmRecorrer))
-            throw new CombustibleAgotadoException("El combustible no es suficiente para completar el recorrido.");
-        if (!neumaticos.puedeCompletarRecorrido(kmRecorrer))
-            throw new NeumaticosAgotadosException("Los neumáticos no pueden completar el recorrido.");
+        if (kmRecorrer <= 0) {throw new IllegalArgumentException("La distancia a recorrer debe ser mayor a 0.");}
+        if (!combustible.puedeCompletarRecorrido(kmRecorrer)) {throw new CombustibleAgotadoException("Gasolina insuficiente para completar el recorrido.");}
+        if (!neumaticos.puedeCompletarRecorrido(kmRecorrer)) {throw new NeumaticosAgotadosException("Los neumáticos no pueden completar el recorrido.");}
         return true;
     }
 }

@@ -1,4 +1,4 @@
-package formula1.model.neumaticos;
+package org.hiberus.formula1.model.combustible;
 
 import org.hiberus.formula1.exception.CombustibleAgotadoException;
 import org.hiberus.formula1.model.combustible.Diesel;
